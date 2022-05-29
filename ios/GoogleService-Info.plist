@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>883532165548-0jqm004r7435pf89hbphus0rd01eagpk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.883532165548-0jqm004r7435pf89hbphus0rd01eagpk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAiPLCX0G4y3da06VRczPwMJ-V3uSErPNc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>883532165548</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.sociallogin</string>
+	<key>PROJECT_ID</key>
+	<string>personalchat-f4b90</string>
+	<key>STORAGE_BUCKET</key>
+	<string>personalchat-f4b90.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:883532165548:ios:4ed0777b81700c9d5e0a09</string>
+	<key>DATABASE_URL</key>
+	<string>https://personalchat-f4b90-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
