@@ -1,6 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/context";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import {
+  GoogleSignin,
+  GoogleSigninButton,
+  statusCodes,
+} from '@react-native-google-signin/google-signin';
+
 import {
   SafeAreaView,
   View,
@@ -11,11 +17,53 @@ import {
   ActivityIndicator,
   TouchableWithoutFeedback,
   TouchableOpacity,
+  Alert
 } from "react-native";
+
 
 const Login = () => {
   const { login } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    GoogleSignin.configure();
+  })
+
+  const _signIn = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      const userInfo = await GoogleSignin.signIn();
+      // this.setState({ userInfo });
+      console.log(userInfo)
+      Alert.alert("User Info",
+        `UserName: ${userInfo.user.givenName}\nEmail: ${userInfo.user.email}`,
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          },
+          { text: "OK", onPress: () => console.log("OK Pressed") }
+        ])
+    } catch (error) {
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        console.log(error)
+
+        // user cancelled the login flow
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        console.log(error)
+
+        // operation (e.g. sign in) is in progress already
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        console.log(error)
+
+        // play services not available or outdated
+      } else {
+        console.log(error)
+        // some other error happened
+      }
+    }
+  };
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -62,7 +110,7 @@ const Login = () => {
               <ActivityIndicator size="small" color="#01BA76" />
             </View>
           ) : (
-            <TouchableOpacity style={styles.loginBtn} onPress={() => login()}>
+            <TouchableOpacity style={styles.loginBtn} onPress={() => null}>
               <Ionicons name="key" size={16} color="white" />
               <Text
                 style={{
@@ -75,15 +123,13 @@ const Login = () => {
             </TouchableOpacity>
           )}
 
-          {/* Create an account suggestion */}
-          <View style={{ flexDirection: "row" }}>
-            <Text>Don't have an account? </Text>
-            <TouchableOpacity>
-              <Text style={[{ color: "#01BA76" }, styles.mainFont]}>
-                Create an account
-              </Text>
-            </TouchableOpacity>
-          </View>
+          <GoogleSigninButton
+            style={{ width: 192, height: 48 }}
+            size={GoogleSigninButton.Size.Wide}
+            color={GoogleSigninButton.Color.Dark}
+            onPress={_signIn}
+          // disabled={this.state.isSigninInProgress}
+          />
         </View>
       </TouchableWithoutFeedback>
     </SafeAreaView>

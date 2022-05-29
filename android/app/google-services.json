@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "883532165548",
+    "firebase_url": "https://personalchat-f4b90-default-rtdb.firebaseio.com",
+    "project_id": "personalchat-f4b90",
+    "storage_bucket": "personalchat-f4b90.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883532165548:android:a9b67a03b0ee87bc5e0a09",
+        "android_client_info": {
+          "package_name": "com.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883532165548-mfucp921ntunv1usc45b91cplh7to8en.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCORGYLmdV5JqNdovm3mDuO0yJzOWPje6I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883532165548-mfucp921ntunv1usc45b91cplh7to8en.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "883532165548-ju59l0nb3ve0974kmli25p7jm4h8tv41.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.chat"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883532165548:android:e4cffaa8317d60515e0a09",
+        "android_client_info": {
+          "package_name": "com.sociallogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883532165548-mfucp921ntunv1usc45b91cplh7to8en.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCORGYLmdV5JqNdovm3mDuO0yJzOWPje6I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883532165548-mfucp921ntunv1usc45b91cplh7to8en.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "883532165548-ju59l0nb3ve0974kmli25p7jm4h8tv41.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.chat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
