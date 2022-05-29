@@ -145,6 +145,7 @@ const Login = () => {
             onPress={_signIn}
           // disabled={this.state.isSigninInProgress}
           />
+          <View style={{marginVertical:6}}></View>
           {/* facebook */}
           <LoginButton
             onLoginFinished={
