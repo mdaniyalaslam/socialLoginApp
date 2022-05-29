@@ -6,6 +6,8 @@ import {
   GoogleSigninButton,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
+import { LoginButton, AccessToken, LoginManager, Profile } from 'react-native-fbsdk-next';
+
 
 import {
   SafeAreaView,
@@ -28,7 +30,20 @@ const Login = () => {
   useEffect(() => {
     GoogleSignin.configure();
   })
-
+  // facedbook
+  const currentProfile = Profile.getCurrentProfile().then(
+    function (currentProfile) {
+      if (currentProfile) {
+        console.log("The current logged user is: " +
+          currentProfile.name
+          + ". His profile id is: " +
+          currentProfile.userID
+        );
+      }
+    }
+  );
+  
+// google signin
   const _signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
@@ -122,7 +137,7 @@ const Login = () => {
               </Text>
             </TouchableOpacity>
           )}
-
+          {/* google */}
           <GoogleSigninButton
             style={{ width: 192, height: 48 }}
             size={GoogleSigninButton.Size.Wide}
@@ -130,6 +145,41 @@ const Login = () => {
             onPress={_signIn}
           // disabled={this.state.isSigninInProgress}
           />
+          {/* facebook */}
+          <LoginButton
+            onLoginFinished={
+              (error, result) => {
+                if (error) {
+                  console.log("login has error: " + result.error);
+                } else if (result.isCancelled) {
+                  console.log("login is cancelled.");
+                } else {
+                  AccessToken.getCurrentAccessToken().then(
+                    (data) => {
+                      console.log(data.accessToken.toString())
+                      Profile.getCurrentProfile().then(
+                        function (currentProfile) {
+                          if (currentProfile) {
+                            Alert.alert("User Info",
+                              `UserName: ${currentProfile.name}\nUserId: ${currentProfile.userID}`,
+                              [
+                                {
+                                  text: "Cancel",
+                                  onPress: () => console.log("Cancel Pressed"),
+                                  style: "cancel"
+                                },
+                                { text: "OK", onPress: () => console.log("OK Pressed") }
+                              ])
+                          }
+                        }
+                      );
+                    }
+                  )
+                }
+              }
+            }
+            onLogoutFinished={() => console.log("logout.")} />
+
         </View>
       </TouchableWithoutFeedback>
     </SafeAreaView>
